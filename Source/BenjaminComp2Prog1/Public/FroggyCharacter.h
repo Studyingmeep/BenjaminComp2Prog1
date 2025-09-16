@@ -3,8 +3,8 @@
 #pragma once
 
 #include "CoreMinimal.h"
-#include "EnhancedInputComponent.h"
 #include "GameFramework/Character.h"
+#include "EnhancedInputComponent.h"
 #include "Logging/LogMacros.h"
 #include "InputActionValue.h"
 #include "InteractableItem.h"
@@ -125,8 +125,6 @@ public:
 	void StopInteract(const FInputActionValue& Value);
 	
 protected:
-	// Called when the game starts or when spawned
-	virtual void BeginPlay() override;
 	
 	/** Move Input Action */
 	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Input", meta = (AllowPrivateAccess = "true"))
@@ -148,6 +146,9 @@ protected:
 	void UpdateHoldTime();
 	void PerformShortInteract();
 	void PerformLongInteract();
+
+	// Called when the game starts or when spawned
+	virtual void BeginPlay() override;
 	
 	virtual void NotifyControllerChanged() override;
 	
